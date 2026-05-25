@@ -15,8 +15,11 @@ This repository is related to the following papers:
   - Proposes weighting problems by student empirical pass rate, emphasizing the frontier of student competence.
   - A two-stage forward-then-reverse KL schedule leads to the best performance.
 
-> **TODO:** Add OPSD (On-Policy Self-Distillation) support -- same model as teacher and student, where the teacher sees ground truth context. Currently only OPD (separate teacher model) is included.
-
+- [Beyond GRPO and On-Policy Distillation: An Empirical Sparse-to-Dense Reward Principle for Language-Model Post-Training](https://arxiv.org/abs/2605.12483) ([PDF](https://arxiv.org/pdf/2605.12483))
+  - Use RL on a strong teacher model to explore high-reward reasoning behaviors.
+  - Distill the RL-trained teacher into a smaller student with dense token-level supervision (FKL-OPD two-stage pipeline).
+  - This teacher-RL + distillation setup outperforms directly training small models with GRPO/RL.
+  - 
 ## OPD: On-Policy Distillation with Separate Teacher
 
 A separate (typically bigger) teacher model and a trainable student model see the same input sequences. The teacher produces better distributions naturally; no ground-truth injection is needed.
